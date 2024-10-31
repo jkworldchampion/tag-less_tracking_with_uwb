@@ -66,6 +66,8 @@ def get_data(name, file):
     print(len(raw_data))
 
 
+# Functions to extract raw, unnormalized data
+# 정규화되지 않은 raw 데이터를 추출하는 함수
 def get_raw_data(name, file):
     data = open(file, 'r')
     data_log = []
@@ -131,6 +133,8 @@ def find_abmax_index(row):
     return np.argmax(np.abs(row))
 
 
+# Find the peak based on absolute value and extract -10 to +150 from it
+# 절대값을 기준으로 peak를 찾아내 그 부분부터 -10부터 +150개 추출
 def same_peak(data):
     peak_same = []
     for i in range(1, len(data)):
