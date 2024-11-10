@@ -137,7 +137,17 @@ def find_abmax_index(row):
 # 절대값을 기준으로 peak를 찾아내 그 부분부터 -10부터 +150개 추출
 def same_peak(data):
     peak_same = []
-    for i in range(1, len(data)):
+    for i in range(0, len(data)):
         start = find_abmax_index(data.iloc[i])
         peak_same.append(data.iloc[i][start-10:start+150].values)
     return pd.DataFrame(peak_same)
+# add error detection code
+# def same_peak(data):
+#     peak_same = []
+#     for i in range(0, len(data)):
+#         row = data[i]
+#         start = find_abmax_index(row)
+#         start_index = max(0, start - 10)
+#         end_index = min(len(row), start + 150)
+#         peak_same.append(row[start_index:end_index])
+#     return pd.DataFrame(peak_same, dtype=object)
